@@ -1,0 +1,14 @@
+server:
+  port: 9097
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: registerSvc
+        uri: http://localhost:9095/
+        predicates:
+        - Path=/registerSvc/api/**
+      - id: searchSvc
+        uri: http://localhost:9096/
+        predicates:
+        - Path=/searchSvc/api/**
